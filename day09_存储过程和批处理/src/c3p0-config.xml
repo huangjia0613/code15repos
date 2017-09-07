@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+
+	<default-config><!-- 默认配置 -->
+		<!-- jdbc的基本配置 -->
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/test
+		</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+
+		<!-- 连接池的默认初始化连接数 , -->
+		<property name="initialPoolSize">5</property>
+		<!-- 最大连接数 -->
+		<property name="maxPoolSize">100</property>
+
+	</default-config>
+
+	<named-config name="mysql"> <!-- 自定义命名配置 -->
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/bwfbookdb
+		</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</named-config>
+
+	<named-config name="oralce"> <!-- 自定义命名配置 -->
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///bwfdb</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</named-config>
+
+
+</c3p0-config>
