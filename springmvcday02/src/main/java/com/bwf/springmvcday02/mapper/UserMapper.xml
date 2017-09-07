@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+1、一般情况下，一个Mapper对应一个XML配置文件  方便开发和维护
+2、namespace的值通常定义为Mapper的类路径
+ -->
+<mapper namespace="com.bwf.springmvcday02.mapper.UserMapper">
+	
+	<!-- 返回集合 的情况下，结果类型还是User-->
+	<select id="findAllUser" resultType="User">
+		select * from t_user
+	</select>
+	
+</mapper>

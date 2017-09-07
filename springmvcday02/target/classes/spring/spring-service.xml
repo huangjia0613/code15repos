@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 关于事务我们后续再讲...... -->
+    <!-- 配置事务管理器 -->
+    <bean id="txManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <!-- user不需要注入Bean组件 -->
+    <bean id="user" class="com.bwf.springmvcday02.pojo.User"></bean>
+    
+    <!-- 这里相当于把user注入给userDao -->
+    <bean id="userDao" class="com.bwf.springmvcday02.service.Impl.UserDaoImpl">
+        <!-- Spring采用setter注入，要求UserDaoImpl要提供user对应的setter注入方法，去掉setter方法，则会测试失败 -->
+        <property name="user" ref="user"></property>
+    </bean>
+    
+    
+</beans>
